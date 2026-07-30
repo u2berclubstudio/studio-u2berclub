@@ -66,7 +66,11 @@
   .m-btn{flex:0 0 auto;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.4);color:#fff;font-family:inherit;font-weight:700;font-size:.7rem;letter-spacing:.5px;padding:7px 13px;border-radius:999px;cursor:pointer;transition:background .2s,color .2s,transform .2s;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
   .m-btn:hover{background:var(--gold);color:#14110a;border-color:var(--gold);transform:translateY(-1px)}
   @media(prefers-reduced-motion:reduce){.marquee-track{animation:none}}
-  @media(max-width:600px){.m-tile{width:78vw}}
+  @media(max-width:600px){.marquee .m-tile{width:78vw}}
+  /* grid layout (responsive) */
+  .g-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;max-width:var(--maxw);margin:0 auto;padding:0 clamp(18px,4vw,32px)}
+  .g-grid .m-tile{width:100%}
+  @media(max-width:640px){.g-grid{grid-template-columns:1fr}}
   .band{padding:clamp(90px,14vh,160px) 0}
   .band h2{font-size:clamp(2.2rem,6vw,4.4rem);margin-bottom:8px}
   .band .accent-line{width:64px;height:4px;border-radius:4px;background:linear-gradient(90deg,var(--gold),var(--accent));margin:22px 0 28px}
@@ -175,24 +179,7 @@
 
 <section class="strip" id="setups">
   <div class="cap"><span class="eyebrow"><span data-key="galleryEyebrow">Inside the Studio</span></span></div>
-  <div class="marquee">
-    <div class="marquee-track" id="galleryTrack">
-      <div class="m-tile" style="background-image:url('backdrop-1.jpg')" data-img="backdrop-1.jpg"><div class="m-cap"><span class="m-name" data-key="gLabel1">The Main Studio</span><button class="m-btn" type="button" onclick="openBook(this)">More info</button></div></div>
-      <div class="m-tile" style="background-image:url('gallery-1.jpg')" data-img="gallery-1.jpg"><div class="m-cap"><span class="m-name" data-key="gLabel2">The Punjab Set</span><button class="m-btn" type="button" onclick="openBook(this)">More info</button></div></div>
-      <div class="m-tile" style="background-image:url('gallery-2.jpg')" data-img="gallery-2.jpg"><div class="m-cap"><span class="m-name" data-key="gLabel3">Green Pod Corner</span><button class="m-btn" type="button" onclick="openBook(this)">More info</button></div></div>
-      <div class="m-tile" style="background-image:url('backdrop-2.jpg')" data-img="backdrop-2.jpg"><div class="m-cap"><span class="m-name" data-key="gLabel4">Interview Set</span><button class="m-btn" type="button" onclick="openBook(this)">More info</button></div></div>
-      <div class="m-tile" style="background-image:url('backdrop-3.jpg')" data-img="backdrop-3.jpg"><div class="m-cap"><span class="m-name" data-key="gLabel5">The Couch Set</span><button class="m-btn" type="button" onclick="openBook(this)">More info</button></div></div>
-      <div class="m-tile" style="background-image:url('gallery-3.jpg')" data-img="gallery-3.jpg"><div class="m-cap"><span class="m-name" data-key="gLabel6">Green Panel Set</span><button class="m-btn" type="button" onclick="openBook(this)">More info</button></div></div>
-      <div class="m-tile" style="background-image:url('gallery-4.jpg')" data-img="gallery-4.jpg"><div class="m-cap"><span class="m-name" data-key="gLabel7">Creator Corner</span><button class="m-btn" type="button" onclick="openBook(this)">More info</button></div></div>
-      <div class="m-tile" style="background-image:url('backdrop-1.jpg')" data-img="backdrop-1.jpg"><div class="m-cap"><span class="m-name" data-key="gLabel1">The Main Studio</span><button class="m-btn" type="button" onclick="openBook(this)">More info</button></div></div>
-      <div class="m-tile" style="background-image:url('gallery-1.jpg')" data-img="gallery-1.jpg"><div class="m-cap"><span class="m-name" data-key="gLabel2">The Punjab Set</span><button class="m-btn" type="button" onclick="openBook(this)">More info</button></div></div>
-      <div class="m-tile" style="background-image:url('gallery-2.jpg')" data-img="gallery-2.jpg"><div class="m-cap"><span class="m-name" data-key="gLabel3">Green Pod Corner</span><button class="m-btn" type="button" onclick="openBook(this)">More info</button></div></div>
-      <div class="m-tile" style="background-image:url('backdrop-2.jpg')" data-img="backdrop-2.jpg"><div class="m-cap"><span class="m-name" data-key="gLabel4">Interview Set</span><button class="m-btn" type="button" onclick="openBook(this)">More info</button></div></div>
-      <div class="m-tile" style="background-image:url('backdrop-3.jpg')" data-img="backdrop-3.jpg"><div class="m-cap"><span class="m-name" data-key="gLabel5">The Couch Set</span><button class="m-btn" type="button" onclick="openBook(this)">More info</button></div></div>
-      <div class="m-tile" style="background-image:url('gallery-3.jpg')" data-img="gallery-3.jpg"><div class="m-cap"><span class="m-name" data-key="gLabel6">Green Panel Set</span><button class="m-btn" type="button" onclick="openBook(this)">More info</button></div></div>
-      <div class="m-tile" style="background-image:url('gallery-4.jpg')" data-img="gallery-4.jpg"><div class="m-cap"><span class="m-name" data-key="gLabel7">Creator Corner</span><button class="m-btn" type="button" onclick="openBook(this)">More info</button></div></div>
-    </div>
-  </div>
+  <div id="galleryHost"><!-- carousel or grid injected by JS based on dashboard setting --></div>
   <div class="btn-row" style="justify-content:center;margin-top:38px">
     <a class="btn btn-primary" data-wa="book" data-key="bookBtn" data-track="book_studio" href="#" target="_blank" rel="noopener">Book the Studio →</a>
   </div>
@@ -372,6 +359,33 @@
 <script>
   // ---- apply content injected by the server ----
   var C = window.mergeContent(window.__SERVER_CONTENT || {});
+
+  // ---- studio gallery: build carousel or grid based on dashboard setting ----
+  var GALLERY=[
+    {img:'backdrop-1.jpg', key:'gLabel1', name:'The Main Studio'},
+    {img:'gallery-1.jpg',  key:'gLabel2', name:'The Punjab Set'},
+    {img:'gallery-2.jpg',  key:'gLabel3', name:'Green Pod Corner'},
+    {img:'backdrop-2.jpg', key:'gLabel4', name:'Interview Set'},
+    {img:'backdrop-3.jpg', key:'gLabel5', name:'The Couch Set'},
+    {img:'gallery-3.jpg',  key:'gLabel6', name:'Green Panel Set'},
+    {img:'gallery-4.jpg',  key:'gLabel7', name:'Creator Corner'}
+  ];
+  function tileHTML(t){
+    return '<div class="m-tile" style="background-image:url('+t.img+')" data-img="'+t.img+'">'+
+      '<div class="m-cap"><span class="m-name" data-key="'+t.key+'">'+t.name+'</span>'+
+      '<button class="m-btn" type="button" onclick="openBook(this)">More info</button></div></div>';
+  }
+  function buildGallery(style){
+    var host=document.getElementById('galleryHost'); if(!host)return;
+    var tiles=GALLERY.map(tileHTML).join('');
+    if(style==='grid'){
+      host.innerHTML='<div class="g-grid">'+tiles+'</div>';
+    } else {
+      host.innerHTML='<div class="marquee"><div class="marquee-track">'+tiles+tiles+'</div></div>';
+    }
+  }
+  buildGallery(C.galleryStyle);
+
   window.applyContentObject(C);
   document.getElementById('yr').textContent = new Date().getFullYear();
   var FORM_ACTION = C.formActionUrl;

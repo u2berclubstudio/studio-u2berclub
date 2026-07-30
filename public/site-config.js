@@ -18,6 +18,7 @@
     heroBtnExplore: "Explore Podcast Setups →",
 
     // Studio gallery
+    galleryStyle: "carousel",
     galleryEyebrow: "Inside the Studio",
     gLabel1: "The Main Studio",
     gLabel2: "The Punjab Set",
@@ -86,6 +87,7 @@
       ["heroBtnExplore", "Explore Setups button label", "text"]
     ]],
     ["Studio Gallery", [
+      ["galleryStyle", "Display style", "select", [["carousel", "Sliding carousel (auto-scroll)"], ["grid", "Responsive grid"]]],
       ["galleryEyebrow", "Section label", "text"],
       ["gLabel1", "Photo 1 caption", "text"],
       ["gLabel2", "Photo 2 caption", "text"],

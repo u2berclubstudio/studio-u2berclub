@@ -69,9 +69,10 @@
   .group-body{padding:4px 20px 18px}
   .fld{margin-bottom:14px}
   .fld label{display:block;font-size:.8rem;font-weight:600;margin-bottom:6px}
-  .fld input,.fld textarea{width:100%;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:10px;padding:10px 12px;color:var(--ink);font-family:inherit;font-size:.9rem}
+  .fld input,.fld textarea,.fld select{width:100%;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:10px;padding:10px 12px;color:var(--ink);font-family:inherit;font-size:.9rem}
+  .fld select option{background:#14141c;color:var(--ink)}
   .fld textarea{resize:vertical;min-height:66px}
-  .fld input:focus,.fld textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px var(--ring)}
+  .fld input:focus,.fld textarea:focus,.fld select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px var(--ring)}
   .hint{font-size:.75rem;color:var(--muted);margin-top:4px}
   .savebar{position:fixed;bottom:0;left:0;right:0;background:rgba(10,10,12,.94);backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:12px clamp(16px,4vw,40px);display:flex;align-items:center;justify-content:space-between;gap:12px;z-index:30;flex-wrap:wrap}
   .status{font-size:.85rem;color:var(--muted)} .status.ok{color:var(--green)}
@@ -221,12 +222,16 @@
     });
   }
   function fieldEl(f){
-    var key=f[0],label=f[1],type=f[2];
+    var key=f[0],label=f[1],type=f[2],opts=f[3];
     var wrap=document.createElement('div'); wrap.className='fld';
     var lab=document.createElement('label'); lab.textContent=label; lab.setAttribute('for','a_'+key); wrap.appendChild(lab);
-    var el = type==='textarea'?document.createElement('textarea'):document.createElement('input');
-    if(type!=='textarea')el.type='text';
-    el.id='a_'+key; el.name=key; el.value=esc(content[key]); el.addEventListener('input',markDirty);
+    var el;
+    if(type==='textarea'){ el=document.createElement('textarea'); }
+    else if(type==='select'){
+      el=document.createElement('select');
+      (opts||[]).forEach(function(o){ var op=document.createElement('option'); op.value=o[0]; op.textContent=o[1]; el.appendChild(op); });
+    } else { el=document.createElement('input'); el.type='text'; }
+    el.id='a_'+key; el.name=key; el.value=esc(content[key]); el.addEventListener('input',markDirty); el.addEventListener('change',markDirty);
     wrap.appendChild(el); return wrap;
   }
   function collect(){
