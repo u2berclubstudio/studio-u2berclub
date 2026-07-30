@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--HEAD_INJECT-->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>U2ber Club Studio — Ludhiana's Home for Creators</title>
+<meta name="description" content="Ludhiana's podcast & content studio. Made in Ludhiana spotlights founders. U2berclub Launchpad helps creators launch their show in 2026." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0a0a0c;--bg-soft:#111116;--ink:#f4f4f6;--muted:#9a9aa6;--gold:#ffcb45;--gold-2:#ff8a3d;--accent:#ff2e63;--accent-2:#00e0c6;--ring:rgba(255,203,69,.35);--maxw:1180px}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:'Sora',system-ui,-apple-system,sans-serif;line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px clamp(18px,4vw,52px);transition:background .3s,padding .3s,box-shadow .3s}
+  .nav.scrolled{background:rgba(10,10,12,.82);backdrop-filter:blur(12px);padding-top:12px;padding-bottom:12px;box-shadow:0 1px 0 rgba(255,255,255,.06)}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.5px}
+  .brand .dot{width:12px;height:12px;border-radius:50%;background:var(--gold);box-shadow:0 0 18px var(--gold)}
+  .brand span.small{font-size:.72rem;color:var(--muted);font-weight:500;letter-spacing:2px;text-transform:uppercase}
+  .nav-links{display:flex;gap:26px;align-items:center}
+  .nav-links a{font-size:.9rem;color:var(--muted);font-weight:500;transition:color .2s}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-cta{background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#12100a;padding:9px 18px;border-radius:999px;font-weight:700;font-size:.85rem;transition:transform .2s,box-shadow .2s}
+  .nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 26px var(--ring)}
+  .menu-btn{display:none;background:none;border:0;color:var(--ink);font-size:1.6rem;cursor:pointer}
+  @media(max-width:820px){.nav-links{position:fixed;inset:0 0 0 auto;width:min(78vw,320px);flex-direction:column;justify-content:center;background:rgba(12,12,16,.97);backdrop-filter:blur(14px);transform:translateX(100%);transition:transform .35s ease;padding:40px}.nav-links.open{transform:translateX(0)}.nav-links a{font-size:1.1rem}.menu-btn{display:block;z-index:110}}
+  .parallax{position:relative;background-size:cover;background-position:center;background-attachment:fixed}
+  @media(max-width:820px){.parallax{background-attachment:scroll}}
+  .ph-1{background-image:radial-gradient(1200px 700px at 72% -10%,#3a2350 0%,transparent 60%),radial-gradient(1000px 600px at 8% 115%,#16304a 0%,transparent 55%),linear-gradient(135deg,#0c0c14 0%,#141426 55%,#0e0e18 100%)}
+  .ph-2{background-image:radial-gradient(950px 560px at 82% -5%,#43300f 0%,transparent 60%),radial-gradient(820px 520px at 8% 110%,#3a1220 0%,transparent 55%),linear-gradient(135deg,#140f0a,#1c1408)}
+  .ph-3{background-image:radial-gradient(950px 560px at 18% -5%,#0a2f2c 0%,transparent 60%),radial-gradient(820px 520px at 92% 110%,#10233a 0%,transparent 55%),linear-gradient(135deg,#08140f,#0a1c1c)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(18px,4vw,32px)}
+  section{position:relative}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.75rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:600;border:1px solid rgba(255,203,69,.3);border-radius:999px;padding:6px 14px;margin-bottom:22px}
+  h1,h2,h3{font-family:'Anton',sans-serif;font-weight:400;letter-spacing:.5px;line-height:1.02;text-transform:uppercase}
+  .fade{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
+  .fade.in{opacity:1;transform:none}
+  .hero{min-height:100vh;display:flex;align-items:center;padding:120px 0 80px}
+  .hero h1{font-size:clamp(2.8rem,8vw,6.4rem)}
+  .hero h1 .grad{background:linear-gradient(120deg,var(--gold),var(--gold-2) 60%,var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p.lead{font-size:clamp(1rem,2.2vw,1.35rem);color:var(--ink);max-width:640px;margin:26px 0 34px;font-weight:300}
+  .hero .sub{color:var(--muted);letter-spacing:2px;text-transform:uppercase;font-size:.8rem;font-weight:600;margin-bottom:18px;display:block}
+  .btn-row{display:flex;gap:16px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:15px 28px;border-radius:999px;font-weight:700;font-size:.98rem;transition:transform .2s,box-shadow .25s,background .2s;cursor:pointer;border:0}
+  .btn-primary{background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#14110a}
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 40px var(--ring)}
+  .btn-ghost{background:rgba(255,255,255,.06);color:var(--ink);border:1px solid rgba(255,255,255,.16)}
+  .btn-ghost:hover{background:rgba(255,255,255,.12);transform:translateY(-3px)}
+  .scroll-hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);color:var(--muted);font-size:.75rem;letter-spacing:3px;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px}
+  .scroll-hint .line{width:1px;height:40px;background:linear-gradient(var(--gold),transparent);animation:drop 1.8s infinite}
+  @keyframes drop{0%{opacity:0;transform:scaleY(0);transform-origin:top}40%{opacity:1;transform:scaleY(1)}100%{opacity:0;transform:scaleY(1);transform-origin:bottom}}
+  .strip{background:var(--bg-soft);padding:56px 0;overflow:hidden}
+  .strip .cap{max-width:var(--maxw);margin:0 auto 26px;padding:0 clamp(18px,4vw,32px)}
+  .strip .cap .eyebrow{margin-bottom:0}
+  .marquee{position:relative;width:100%;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+  .marquee-track{display:flex;gap:16px;width:max-content;animation:scrollLeft 55s linear infinite}
+  .marquee:hover .marquee-track{animation-play-state:paused}
+  @keyframes scrollLeft{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .m-tile{position:relative;flex:0 0 auto;width:clamp(300px,34vw,480px);aspect-ratio:16/10;border-radius:16px;overflow:hidden;background-size:cover;background-position:center;background-color:#1b1b24;box-shadow:0 14px 40px rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.08)}
+  .m-tile::after{content:attr(data-label);position:absolute;inset:auto 0 0 0;padding:16px;font-size:.74rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.72))}
+  @media(prefers-reduced-motion:reduce){.marquee-track{animation:none}}
+  @media(max-width:600px){.m-tile{width:78vw}}
+  .band{padding:clamp(90px,14vh,160px) 0}
+  .band h2{font-size:clamp(2.2rem,6vw,4.4rem);margin-bottom:8px}
+  .band .accent-line{width:64px;height:4px;border-radius:4px;background:linear-gradient(90deg,var(--gold),var(--accent));margin:22px 0 28px}
+  .band p.body{font-size:clamp(1rem,1.7vw,1.18rem);color:#d8d8e0;max-width:620px;font-weight:300}
+  .card{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);border-radius:20px;padding:clamp(26px,4vw,46px);backdrop-filter:blur(6px);max-width:720px}
+  .pill-list{display:flex;flex-wrap:wrap;gap:12px;margin:26px 0 32px}
+  .pill{font-size:.85rem;color:#e6e6ee;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:9px 16px;border-radius:999px}
+  .pill b{color:var(--gold)}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px;max-width:720px}
+  .stat{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:22px}
+  .stat .num{font-family:'Anton';font-size:2.4rem;color:var(--gold);line-height:1}
+  .stat .lbl{color:var(--muted);font-size:.82rem;margin-top:6px}
+  @media(max-width:620px){.stats{grid-template-columns:1fr;gap:12px}}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px}
+  .step{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:24px;position:relative;overflow:hidden}
+  .step .n{font-family:'Anton';font-size:2.6rem;color:rgba(255,255,255,.12);line-height:1}
+  .step h4{font-family:'Sora';font-weight:700;margin:6px 0 8px;font-size:1.05rem}
+  .step p{color:var(--muted);font-size:.9rem;font-weight:300}
+  .step::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--accent-2),var(--gold))}
+  @media(max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.steps{grid-template-columns:1fr}}
+  .mission{background:var(--bg-soft);padding:clamp(70px,10vh,120px) 0;text-align:center}
+  .mission h2{font-size:clamp(1.8rem,5vw,3.4rem);max-width:900px;margin:0 auto}
+  .mission h2 .grad{background:linear-gradient(120deg,var(--gold),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .mission p{color:var(--muted);max-width:620px;margin:22px auto 0;font-weight:300}
+  footer{background:#060608;padding:64px 0 40px;border-top:1px solid rgba(255,255,255,.06)}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;align-items:flex-start}
+  footer .brand{font-size:1.3rem}
+  .foot-col h5{font-family:'Sora',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+  .foot-col a,.foot-col p{display:block;color:var(--muted);font-size:.9rem;margin-bottom:10px;font-weight:300;line-height:1.5}
+  .foot-col a{transition:color .2s}
+  .foot-col a:hover{color:var(--gold)}
+  .foot-address{max-width:250px}
+  .copy{color:#55555f;font-size:.8rem;margin-top:40px}
+  @media(max-width:760px){.foot-grid{grid-template-columns:1fr 1fr;gap:32px}}
+  @media(max-width:480px){.foot-grid{grid-template-columns:1fr}}
+  .modal-overlay{position:fixed;inset:0;z-index:1000;display:none;background:rgba(4,4,7,.78);backdrop-filter:blur(6px);padding:24px;overflow-y:auto;align-items:flex-start;justify-content:center}
+  .modal-overlay.open{display:flex}
+  .modal{background:linear-gradient(180deg,#14141c,#0d0d12);border:1px solid rgba(255,255,255,.1);border-radius:22px;width:min(640px,100%);margin:auto;position:relative;box-shadow:0 30px 90px rgba(0,0,0,.6);animation:pop .35s cubic-bezier(.2,.8,.25,1)}
+  @keyframes pop{from{opacity:0;transform:translateY(24px) scale(.98)}to{opacity:1;transform:none}}
+  .modal-head{padding:30px clamp(22px,4vw,38px) 18px;border-bottom:1px solid rgba(255,255,255,.08);position:sticky;top:0;background:linear-gradient(180deg,#14141c,#14141cf2);border-radius:22px 22px 0 0;z-index:2}
+  .modal-head .eyebrow{margin-bottom:14px}
+  .modal-head h3{font-size:clamp(1.6rem,4vw,2.4rem)}
+  .modal-head p{color:var(--muted);font-size:.9rem;margin-top:8px;font-weight:300}
+  .modal-close{position:absolute;top:18px;right:18px;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);color:#fff;font-size:1.2rem;cursor:pointer;line-height:1;transition:background .2s,transform .2s}
+  .modal-close:hover{background:rgba(255,255,255,.18);transform:rotate(90deg)}
+  .modal-body{padding:24px clamp(22px,4vw,38px) 8px}
+  .fld{margin-bottom:20px}
+  .fld label{display:block;font-size:.9rem;font-weight:600;margin-bottom:8px;color:#eaeaf0}
+  .fld label .req{color:var(--accent);margin-left:3px}
+  .fld input[type=text],.fld input[type=email],.fld input[type=tel],.fld input[type=number],.fld textarea,.fld select{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:13px 15px;color:var(--ink);font-family:inherit;font-size:.95rem;transition:border .2s,box-shadow .2s}
+  .fld textarea{resize:vertical;min-height:84px}
+  .fld input:focus,.fld textarea:focus,.fld select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px var(--ring)}
+  .fld select option{background:#14141c;color:#fff}
+  .radio-row{display:flex;flex-direction:column;gap:9px}
+  .radio-opt{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:11px;padding:11px 14px;cursor:pointer;font-size:.9rem;color:#dcdce4;transition:border .2s,background .2s}
+  .radio-opt:hover{background:rgba(255,255,255,.08)}
+  .radio-opt input{accent-color:var(--gold);width:16px;height:16px}
+  .radio-opt.sel{border-color:var(--gold);background:rgba(255,203,69,.08)}
+  .modal-foot{padding:8px clamp(22px,4vw,38px) 30px;position:sticky;bottom:0;background:linear-gradient(0deg,#0d0d12,#0d0d12f2);border-radius:0 0 22px 22px}
+  .modal-foot .btn{width:100%;justify-content:center}
+  .modal-foot .note{color:#55555f;font-size:.74rem;text-align:center;margin-top:12px}
+  .modal-success{padding:48px 34px 54px;text-align:center;display:none}
+  .modal-success.show{display:block}
+  .modal-success .tick{width:74px;height:74px;border-radius:50%;margin:0 auto 22px;background:linear-gradient(135deg,var(--gold),var(--gold-2));display:flex;align-items:center;justify-content:center;font-size:2.2rem;color:#14110a}
+  .modal-success h3{font-size:2rem;margin-bottom:10px}
+  .modal-success p{color:var(--muted);font-weight:300;max-width:400px;margin:0 auto}
+  .modal-success .btn{margin-top:26px}
+  body.modal-locked{overflow:hidden}
+</style>
+</head>
+<body>
+<!--BODY_INJECT-->
+
+<nav class="nav" id="nav">
+  <a class="brand" href="#top"><span class="dot"></span><span><span data-key="brandName">U2BER CLUB</span><br><span class="small" data-key="brandTag">Studio · Ludhiana</span></span></a>
+  <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+  <div class="nav-links" id="navLinks">
+    <a href="#made">Made in Ludhiana</a>
+    <a href="#launchpad">Launchpad</a>
+    <a href="#mission">Our Mission</a>
+    <a class="nav-cta" href="#launchpad" data-track="nav_start">Start Creating →</a>
+  </div>
+</nav>
+
+<section class="hero parallax ph-1" id="top">
+  <div class="wrap">
+    <div class="fade">
+      <span class="sub" data-key="heroSub">Ludhiana's Home for Creators &amp; Founders</span>
+      <h1><span data-key="heroTitle">Lights. Camera.</span><br><span class="grad" data-key="heroAccent">Ludhiana.</span></h1>
+      <p class="lead" data-key="heroLead">A world-class podcast &amp; content studio, right here in Ludhiana — built to turn your story, your business, and your voice into content the whole city watches.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="#launchpad" data-key="heroBtnPrimary" data-track="hero_start">Start Your Creator Journey →</a>
+        <a class="btn btn-ghost" href="#made" data-key="heroBtnGhost" data-track="hero_founder">Are You a Founder?</a>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint"><span>Scroll</span><span class="line"></span></div>
+</section>
+
+<section class="strip">
+  <div class="cap"><span class="eyebrow"><span data-key="galleryEyebrow">Inside the Studio</span></span></div>
+  <div class="marquee">
+    <div class="marquee-track" id="galleryTrack">
+      <div class="m-tile" style="background-image:url('backdrop-1.jpg')" data-glabel="gLabel1" data-label="The Main Studio"></div>
+      <div class="m-tile" style="background-image:url('gallery-1.jpg')" data-glabel="gLabel2" data-label="The Punjab Set"></div>
+      <div class="m-tile" style="background-image:url('gallery-2.jpg')" data-glabel="gLabel3" data-label="Green Pod Corner"></div>
+      <div class="m-tile" style="background-image:url('backdrop-2.jpg')" data-glabel="gLabel4" data-label="Interview Set"></div>
+      <div class="m-tile" style="background-image:url('backdrop-3.jpg')" data-glabel="gLabel5" data-label="The Couch Set"></div>
+      <div class="m-tile" style="background-image:url('gallery-3.jpg')" data-glabel="gLabel6" data-label="Green Panel Set"></div>
+      <div class="m-tile" style="background-image:url('gallery-4.jpg')" data-glabel="gLabel7" data-label="Creator Corner"></div>
+      <div class="m-tile" style="background-image:url('backdrop-1.jpg')" data-glabel="gLabel1" data-label="The Main Studio"></div>
+      <div class="m-tile" style="background-image:url('gallery-1.jpg')" data-glabel="gLabel2" data-label="The Punjab Set"></div>
+      <div class="m-tile" style="background-image:url('gallery-2.jpg')" data-glabel="gLabel3" data-label="Green Pod Corner"></div>
+      <div class="m-tile" style="background-image:url('backdrop-2.jpg')" data-glabel="gLabel4" data-label="Interview Set"></div>
+      <div class="m-tile" style="background-image:url('backdrop-3.jpg')" data-glabel="gLabel5" data-label="The Couch Set"></div>
+      <div class="m-tile" style="background-image:url('gallery-3.jpg')" data-glabel="gLabel6" data-label="Green Panel Set"></div>
+      <div class="m-tile" style="background-image:url('gallery-4.jpg')" data-glabel="gLabel7" data-label="Creator Corner"></div>
+    </div>
+  </div>
+  <div class="btn-row" style="justify-content:center;margin-top:38px">
+    <a class="btn btn-primary" data-wa="book" data-key="bookBtn" data-track="book_studio" href="#" target="_blank" rel="noopener">Book the Studio →</a>
+  </div>
+</section>
+
+<section class="band parallax ph-2" id="made">
+  <div class="wrap">
+    <div class="card fade">
+      <span class="eyebrow">◆ Program 01</span>
+      <h2 data-key="madeTitle">Made in Ludhiana</h2>
+      <div class="accent-line"></div>
+      <p class="body" data-key="madeBody">A platform for the founders, CEOs and business owners building Ludhiana — to share their entrepreneurial journey on camera. Your grind, your wins, your lessons. We produce it. The city gets inspired.</p>
+      <div class="pill-list">
+        <span class="pill"><b>Who:</b> Founders &amp; CEOs</span>
+        <span class="pill"><b>Format:</b> Long-form journey episode</span>
+        <span class="pill"><b>You get:</b> Full production + reels</span>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-primary" type="button" onclick="openApply()" data-key="madeBtn" data-track="apply_open">Apply to be featured →</button>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="num">100%</div><div class="lbl">Studio-produced, zero cost to prep</div></div>
+        <div class="stat"><div class="num">1</div><div class="lbl">City. One story at a time.</div></div>
+        <div class="stat"><div class="num">∞</div><div class="lbl">Reach across Ludhiana &amp; beyond</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band parallax ph-3" id="launchpad">
+  <div class="wrap">
+    <div class="card fade">
+      <span class="eyebrow">◆ Program 02</span>
+      <h2 data-key="launchHeading">U2berclub Launchpad</h2>
+      <div class="accent-line"></div>
+      <p class="body" style="font-size:clamp(1.1rem,2vw,1.35rem);color:#fff;margin-bottom:16px"><b data-key="launchTagline">Launch your Show. Launch your IP. In 2026.</b></p>
+      <p class="body" data-key="launchBody1">It's not about "making content" anymore. 2026 is the era of launching your own Show — your own IP. Every creator, big or small, has figured out the same secret: India's biggest names are all testing their ideas in show format.</p>
+      <p class="body" style="margin-top:16px" data-key="launchBody2">The only thing holding you back is the doubt — "what if it doesn't work?" That's exactly where we come in. Connect with U2berclub Launchpad and let's figure out how to launch your idea — and actually execute it.</p>
+      <div class="pill-list">
+        <span class="pill"><b>For:</b> Creators ready to launch a show</span>
+        <span class="pill"><b>We do:</b> Idea → Format → Execution</span>
+        <span class="pill"><b>Bonus:</b> We connect you with brands</span>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="n">01</div><h4 data-key="ls1t">Pressure-test the Idea</h4><p data-key="ls1d">We sit with you and validate whether your show idea will actually land.</p></div>
+        <div class="step"><div class="n">02</div><h4 data-key="ls2t">Shape the Format</h4><p data-key="ls2d">Turn a rough idea into a repeatable show format &amp; IP you own.</p></div>
+        <div class="step"><div class="n">03</div><h4 data-key="ls3t">Shoot at the Studio</h4><p data-key="ls3d">Pro set, lights &amp; audio. We produce your first episodes with you.</p></div>
+        <div class="step"><div class="n">04</div><h4 data-key="ls4t">Launch &amp; Monetise</h4><p data-key="ls4d">Go live, grow, and get connected with brands that pay.</p></div>
+      </div>
+      <div class="btn-row" style="margin-top:34px">
+        <button class="btn btn-primary" type="button" onclick="openLaunch()" data-key="launchBtn" data-track="launch_open">Launch My Show →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mission" id="mission">
+  <div class="wrap fade">
+    <span class="eyebrow" style="margin-bottom:26px">◆ Why we exist</span>
+    <h2><span data-key="missionTitle">Every city deserves its own creators.</span> <span class="grad" data-key="missionAccent">Ludhiana's time is now.</span></h2>
+    <p data-key="missionBody">Talent isn't the problem — access is. U2ber Club Studio is built to give the people of Ludhiana the stage, the tools and the support to tell their stories to the world. Whether you're a founder with a journey or a beginner with a dream, this is where you start.</p>
+    <div class="btn-row" style="justify-content:center;margin-top:34px">
+      <a class="btn btn-primary" href="#launchpad" data-key="missionBtn" data-track="mission_begin">Begin Your Journey →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <a class="brand" href="#top"><span class="dot"></span><span><span data-key="brandName">U2BER CLUB</span><br><span class="small" data-key="brandTag">Studio · Ludhiana</span></span></a>
+        <p style="margin-top:16px;max-width:280px" data-key="footerAbout">Ludhiana's content creation studio &amp; learning hub — fully equipped for podcasts, shows and shoots. Inspiring the city to create, one story at a time.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Visit the Studio</h5>
+        <p class="foot-address"><span data-key="studioName">PODCAST STUDIO U2BERCLUB</span><br><span data-key="address">Main Hambran Rd, near Govind Godham, Partap Singhwala, Ludhiana, Punjab 141008</span></p>
+        <a data-link="directionsUrl" href="#" target="_blank" rel="noopener" data-track="directions">📍 Get Directions</a>
+        <p>🕒 <span data-key="hours">Open daily · from 10:30 AM</span></p>
+      </div>
+      <div class="foot-col">
+        <h5>Connect</h5>
+        <a data-wa="book" href="#" target="_blank" rel="noopener" data-track="footer_whatsapp">WhatsApp / Book Now</a>
+        <a data-link="instaUrl" href="#" target="_blank" rel="noopener" data-track="instagram">Instagram @u2berclubstudio</a>
+        <a data-link="websiteUrl" href="#" target="_blank" rel="noopener" data-track="website">u2berclub.com</a>
+        <a href="#made" onclick="openApply();return false;">Apply: Made in Ludhiana</a>
+        <a href="#launchpad" onclick="openLaunch();return false;">Apply: Launchpad</a>
+      </div>
+    </div>
+    <div class="copy">© <span id="yr"></span> <span data-key="brandName">U2BER CLUB</span> Studio, Ludhiana. All rights reserved. · <a href="/admin" style="color:#55555f">Admin</a></div>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="applyModal" role="dialog" aria-modal="true" aria-labelledby="applyTitle">
+  <div class="modal">
+    <button class="modal-close" onclick="closeApply()" aria-label="Close">✕</button>
+    <div class="modal-head">
+      <span class="eyebrow">◆ Made in Ludhiana</span>
+      <h3 id="applyTitle">Podcast Guest Application</h3>
+      <p>We're capturing the stories of Ludhiana's real builders. Tell us yours — it takes 3 minutes. Fields marked <span style="color:var(--accent)">*</span> are required.</p>
+    </div>
+    <form id="applyForm" novalidate>
+      <div class="modal-body" id="applyFields"></div>
+      <div class="modal-foot">
+        <button class="btn btn-primary" type="submit" id="applySubmit">Submit Application →</button>
+        <div class="note">Your response goes straight to the U2ber Club team.</div>
+      </div>
+    </form>
+    <div class="modal-success" id="applySuccess">
+      <div class="tick">✓</div>
+      <h3>You're in!</h3>
+      <p>Thanks for applying to Made in Ludhiana. Our team will reach out to you on WhatsApp soon.</p>
+      <button class="btn btn-primary" type="button" onclick="closeApply()">Done</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="launchModal" role="dialog" aria-modal="true" aria-labelledby="launchTitle">
+  <div class="modal">
+    <button class="modal-close" onclick="closeLaunch()" aria-label="Close">✕</button>
+    <div class="modal-head">
+      <span class="eyebrow">◆ U2berclub Launchpad</span>
+      <h3 id="launchTitle">Launch My Show</h3>
+      <p>Tell us about your idea. Hit submit and it opens WhatsApp with your details ready to send — then our team takes it from there. Fields marked <span style="color:var(--accent)">*</span> are required.</p>
+    </div>
+    <form id="launchForm" novalidate>
+      <div class="modal-body" id="launchFields"></div>
+      <div class="modal-foot">
+        <button class="btn btn-primary" type="submit" id="launchSubmit">Submit Application →</button>
+        <div class="note">Your application goes straight to the U2berclub Launchpad team.</div>
+      </div>
+    </form>
+    <div class="modal-success" id="launchSuccess">
+      <div class="tick">✓</div>
+      <h3>Application sent!</h3>
+      <p>Thanks for applying to U2berclub Launchpad. We'll reach out to you soon to plan your show.</p>
+      <button class="btn btn-primary" type="button" onclick="closeLaunch()">Done</button>
+    </div>
+  </div>
+</div>
+
+<!--SERVER_CONTENT-->
+<script src="/site-config.js"></script>
+<script>
+  // ---- apply content injected by the server ----
+  var C = window.mergeContent(window.__SERVER_CONTENT || {});
+  window.applyContentObject(C);
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  var FORM_ACTION = C.formActionUrl;
+  var LAUNCH_WA = String(C.whatsappNumber || "").replace(/[^0-9]/g,"");
+
+  // ---- first-party analytics ----
+  (function(){
+    var CID = localStorage.getItem('u2_cid');
+    if(!CID){ CID='c'+Math.random().toString(36).slice(2)+Date.now().toString(36); localStorage.setItem('u2_cid',CID); }
+    function send(type,label){
+      var payload = JSON.stringify({type:type,label:label||'',path:location.pathname,cid:CID,ref:document.referrer});
+      try{
+        if(navigator.sendBeacon){ navigator.sendBeacon('/api/track', new Blob([payload],{type:'application/json'})); }
+        else{ fetch('/api/track',{method:'POST',headers:{'Content-Type':'application/json'},body:payload,keepalive:true}); }
+      }catch(e){}
+    }
+    window.__track = send;
+    send('pageview');
+    setInterval(function(){ if(document.visibilityState==='visible') send('ping'); }, 15000);
+    document.addEventListener('click',function(e){ var el=e.target.closest('[data-track]'); if(el) send('click', el.getAttribute('data-track')); });
+  })();
+
+  // ---- nav ----
+  var nav=document.getElementById('nav');
+  addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>40);});
+  var menuBtn=document.getElementById('menuBtn'), navLinks=document.getElementById('navLinks');
+  menuBtn.addEventListener('click',function(){navLinks.classList.toggle('open');});
+  navLinks.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){navLinks.classList.remove('open');});});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('in');});},{threshold:.18});
+  document.querySelectorAll('.fade').forEach(function(el){io.observe(el);});
+  var heroContent=document.querySelector('.hero .fade');
+  addEventListener('scroll',function(){var y=scrollY;if(y<innerHeight&&heroContent){heroContent.style.transform='translateY('+(y*0.15)+'px)';heroContent.style.opacity=Math.max(0,1-y/(innerHeight*0.9));}},{passive:true});
+
+  function buildRadio(row,f,name){
+    f.o.forEach(function(op){
+      var l=document.createElement('label'); l.className='radio-opt';
+      var r=document.createElement('input'); r.type='radio'; r.name=name; r.value=op;
+      r.addEventListener('change',function(){row.querySelectorAll('.radio-opt').forEach(function(x){x.classList.remove('sel');});l.classList.add('sel');});
+      var sp=document.createElement('span'); sp.textContent=op; l.appendChild(r); l.appendChild(sp); row.appendChild(l);
+    });
+  }
+
+  // ---- Made in Ludhiana apply modal (Google Form) ----
+  var FIELDS=[
+    {e:"entry.584921813", l:"Full Name", t:"text", req:true},
+    {e:"entry.326751092", l:"Age", t:"number", req:true},
+    {e:"entry.1748785196", l:"Phone Number (WhatsApp preferred)", t:"tel", req:true},
+    {e:"entry.152699148", l:"Email Address", t:"email", req:true},
+    {e:"entry.1512063546", l:"Business Name", t:"text", req:false},
+    {e:"entry.1443849746", l:"Website or Instagram Link", t:"text", req:true},
+    {e:"entry.1222463739", l:"Industry / Type of Business", t:"select", req:true, o:["Cycles","Hosiery","Steel","Garments","Food","Real Estate","Other"]},
+    {e:"entry.496491962", l:"Year the business was founded", t:"text", req:true},
+    {e:"entry.1750184037", l:"Who started the business — you or your family?", t:"radio", req:true, o:["1st Generation (I started it)","2nd Generation (My parents started it)","3rd Generation+ (Grandparents or earlier generations started it)"]},
+    {e:"entry.527652678", l:"Starting Capital (approximate range)", t:"radio", req:false, o:["Under ₹10K","₹10K – ₹1L","₹1L – ₹10L","Above ₹10L","Prefer not to say"]},
+    {e:"entry.43418272", l:"In one line, what does your business do today?", t:"text", req:false},
+    {e:"entry.1891475589", l:"What's the hardest moment your business ever survived?", t:"text", req:false},
+    {e:"entry.648593041", l:"What's the one decision that changed everything for your business?", t:"text", req:false},
+    {e:"entry.1937023818", l:"Did your business ever come close to shutting down?", t:"radio", req:false, o:["Yes","No"]},
+    {e:"entry.1730396006", l:"If yes, please tell us briefly about that time.", t:"textarea", req:false},
+    {e:"entry.1198821171", l:"What's something about Ludhiana's business culture that most people don't know?", t:"text", req:false}
+  ];
+  (function(){
+    var box=document.getElementById('applyFields');
+    FIELDS.forEach(function(f,i){
+      var wrap=document.createElement('div'); wrap.className='fld';
+      var lab=document.createElement('label'); lab.innerHTML=f.l+(f.req?' <span class="req">*</span>':''); lab.setAttribute('for','f'+i); wrap.appendChild(lab);
+      if(f.t==='select'){ var s=document.createElement('select'); s.id='f'+i; s.name=f.e; if(f.req)s.required=true; var ph=document.createElement('option'); ph.value=''; ph.textContent='Choose…'; s.appendChild(ph); f.o.forEach(function(op){var o=document.createElement('option');o.value=op;o.textContent=op;s.appendChild(o);}); wrap.appendChild(s);
+      } else if(f.t==='radio'){ var row=document.createElement('div'); row.className='radio-row'; buildRadio(row,f,f.e); wrap.appendChild(row);
+      } else if(f.t==='textarea'){ var ta=document.createElement('textarea'); ta.id='f'+i; ta.name=f.e; if(f.req)ta.required=true; wrap.appendChild(ta);
+      } else { var inp=document.createElement('input'); inp.type=f.t; inp.id='f'+i; inp.name=f.e; if(f.req)inp.required=true; wrap.appendChild(inp); }
+      box.appendChild(wrap);
+    });
+  })();
+  var applyModal=document.getElementById('applyModal');
+  function openApply(){applyModal.classList.add('open');document.body.classList.add('modal-locked');document.getElementById('applyForm').style.display='block';document.getElementById('applySuccess').classList.remove('show');}
+  function closeApply(){applyModal.classList.remove('open');document.body.classList.remove('modal-locked');}
+  applyModal.addEventListener('click',function(e){if(e.target===applyModal)closeApply();});
+  addEventListener('keydown',function(e){if(e.key==='Escape'){closeApply();closeLaunch();}});
+  document.getElementById('applyForm').addEventListener('submit',function(ev){
+    ev.preventDefault(); var form=ev.target; var missing=[];
+    FIELDS.forEach(function(f){if(f.req&&f.t==='radio'&&!form.querySelector('input[name="'+f.e+'"]:checked'))missing.push(f.l);});
+    if(!form.checkValidity()){form.reportValidity();return;}
+    if(missing.length){alert('Please answer: '+missing.join(', '));return;}
+    var fd=new FormData();
+    FIELDS.forEach(function(f){ if(f.t==='radio'){var c=form.querySelector('input[name="'+f.e+'"]:checked');if(c)fd.append(f.e,c.value);} else {var el=form.querySelector('[name="'+f.e+'"]');if(el&&el.value)fd.append(f.e,el.value);} });
+    var btn=document.getElementById('applySubmit'); btn.textContent='Submitting…'; btn.disabled=true;
+    if(window.__track)window.__track('click','apply_submit');
+    fetch(FORM_ACTION,{method:'POST',mode:'no-cors',body:fd}).catch(function(){}).finally(function(){
+      form.style.display='none'; document.getElementById('applySuccess').classList.add('show');
+      btn.textContent='Submit Application →'; btn.disabled=false; form.reset();
+      document.querySelectorAll('#applyForm .radio-opt.sel').forEach(function(x){x.classList.remove('sel');});
+    });
+  });
+
+  // ---- Launchpad modal (submits to Google Form) ----
+  var LAUNCH_ACTION="https://docs.google.com/forms/d/e/1FAIpQLScqo2gAR8S18XYjz4WiyB9AoLgEyNhey05VS3tfkwcbtIR2zA/formResponse";
+  var LAUNCH_FIELDS=[
+    {e:"entry.1724141481", l:"Your Name", t:"text", req:true},
+    {e:"entry.1518216130", l:"Mobile Number", t:"tel", req:true},
+    {e:"entry.1609699328", l:"Instagram / Channel Link", t:"text", req:true},
+    {e:"entry.1580895189", l:"What stage is your idea at?", t:"select", req:true, o:["Just a rough idea","Idea is clear, not started yet","Started — a few episodes done","Already running, want to scale"]},
+    {e:"entry.859825944", l:"Is your idea new or inspired from creators outside?", t:"radio", req:true, o:["Completely original","Inspired by creators I follow","A mix of both"]},
+    {e:"entry.282179434", l:"What's the biggest bottleneck in executing it?", t:"textarea", req:true},
+    {e:"entry.1272380470", l:"How long have you been sitting on this idea?", t:"select", req:false, o:["Less than a month","1–3 months","3–6 months","6–12 months","Over a year"]}
+  ];
+  (function(){
+    var box=document.getElementById('launchFields');
+    LAUNCH_FIELDS.forEach(function(f,i){
+      var wrap=document.createElement('div'); wrap.className='fld';
+      var lab=document.createElement('label'); lab.innerHTML=f.l+(f.req?' <span class="req">*</span>':''); lab.setAttribute('for','lf'+i); wrap.appendChild(lab);
+      if(f.t==='select'){ var s=document.createElement('select'); s.id='lf'+i; s.name=f.e; if(f.req)s.required=true; var ph=document.createElement('option'); ph.value=''; ph.textContent='Choose…'; s.appendChild(ph); f.o.forEach(function(op){var o=document.createElement('option');o.value=op;o.textContent=op;s.appendChild(o);}); wrap.appendChild(s);
+      } else if(f.t==='radio'){ var row=document.createElement('div'); row.className='radio-row'; buildRadio(row,f,f.e); wrap.appendChild(row);
+      } else if(f.t==='textarea'){ var ta=document.createElement('textarea'); ta.id='lf'+i; ta.name=f.e; if(f.req)ta.required=true; wrap.appendChild(ta);
+      } else { var inp=document.createElement('input'); inp.type=f.t; inp.id='lf'+i; inp.name=f.e; if(f.req)inp.required=true; wrap.appendChild(inp); }
+      box.appendChild(wrap);
+    });
+  })();
+  var launchModal=document.getElementById('launchModal');
+  function openLaunch(){launchModal.classList.add('open');document.body.classList.add('modal-locked');document.getElementById('launchForm').style.display='block';document.getElementById('launchSuccess').classList.remove('show');}
+  function closeLaunch(){launchModal.classList.remove('open');document.body.classList.remove('modal-locked');}
+  launchModal.addEventListener('click',function(e){if(e.target===launchModal)closeLaunch();});
+  document.getElementById('launchForm').addEventListener('submit',function(ev){
+    ev.preventDefault(); var form=ev.target; var missing=[];
+    LAUNCH_FIELDS.forEach(function(f){if(f.req&&f.t==='radio'&&!form.querySelector('input[name="'+f.e+'"]:checked'))missing.push(f.l);});
+    if(!form.checkValidity()){form.reportValidity();return;}
+    if(missing.length){alert('Please answer: '+missing.join(', '));return;}
+    var fd=new FormData();
+    LAUNCH_FIELDS.forEach(function(f){ if(f.t==='radio'){var c=form.querySelector('input[name="'+f.e+'"]:checked');if(c)fd.append(f.e,c.value);} else {var el=form.querySelector('[name="'+f.e+'"]');if(el&&el.value)fd.append(f.e,el.value);} });
+    var btn=document.getElementById('launchSubmit'); btn.textContent='Submitting…'; btn.disabled=true;
+    if(window.__track)window.__track('click','launch_submit');
+    fetch(LAUNCH_ACTION,{method:'POST',mode:'no-cors',body:fd}).catch(function(){}).finally(function(){
+      form.style.display='none'; document.getElementById('launchSuccess').classList.add('show');
+      btn.textContent='Submit Application →'; btn.disabled=false; form.reset();
+      document.querySelectorAll('#launchForm .radio-opt.sel').forEach(function(x){x.classList.remove('sel');});
+    });
+  });
+</script>
+</body>
+</html>

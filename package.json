@@ -1,0 +1,16 @@
+{
+  "name": "studio-u2berclub",
+  "version": "1.0.0",
+  "description": "U2ber Club Studio — secure single-page site with admin CMS, live analytics, and Pixel/GTM management.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "express-session": "^1.18.0"
+  }
+}
