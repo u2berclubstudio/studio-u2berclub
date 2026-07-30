@@ -9,7 +9,7 @@ Files:
 studio-u2berclub/
 ├── server.js               # the web server
 ├── package.json
-├── public/                 # site-config.js, admin.html, and the 7 studio photos
+├── public/                 # site-config.js, dashboard.html, and the 7 studio photos
 ├── templates/index.html    # the homepage (server fills in content + tags)
 └── data/                   # created automatically: content.json + events.jsonl
 ```
@@ -144,7 +144,7 @@ Choose the redirect-to-HTTPS option. Done — your site is live at
 
 ## Using it
 - **Website:** https://studio.u2berclub.com
-- **Admin:** https://studio.u2berclub.com/admin  (log in with your ADMIN_PASSWORD)
+- **Dashboard:** https://studio.u2berclub.com/dashboard  (log in with your ADMIN_PASSWORD)
   - **Analytics tab** — live visitors, 24h/7d/all-time views, a 7-day chart,
     button-click counts, traffic sources, and a live activity feed.
   - **Content tab** — edit every headline, paragraph, button, caption, the

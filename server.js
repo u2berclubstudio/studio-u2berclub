@@ -248,8 +248,7 @@ function renderIndex(res) {
 app.get("/", (req, res) => renderIndex(res));
 app.get("/index.html", (req, res) => renderIndex(res));
 
-/* admin.html is static (served from /public) via express.static above,
-   but ensure a clean route too */
-app.get("/admin", (req, res) => res.sendFile(path.join(__dirname, "public", "admin.html")));
+/* dashboard (admin) page — served at /dashboard */
+app.get("/dashboard", (req, res) => res.sendFile(path.join(__dirname, "public", "dashboard.html")));
 
 app.listen(PORT, () => console.log("U2ber Club Studio running on http://localhost:" + PORT));

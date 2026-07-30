@@ -8,7 +8,7 @@ Once this is set up, updating the live site is:
 No more uploading files one by one.
 
 > Reminder: most **text, number, and tracking changes don't need GitHub at all** —
-> do those in the Admin panel (studio.u2berclub.com/admin), they save instantly.
+> do those in the Dashboard (studio.u2berclub.com/dashboard), they save instantly.
 > GitHub is only for design/code changes I make for you.
 
 ---
