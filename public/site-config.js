@@ -30,6 +30,7 @@
     // Contact / WhatsApp
     whatsappNumber: "916239399649",
     bookMessage: "I want to book a studio.",
+    whatsappLink: "https://wa.me/message/7WN2XYZPQPO5M1",
 
     // Made in Ludhiana
     madeTitle: "Made in Ludhiana",
@@ -94,8 +95,9 @@
       ["bookBtn", "Book Studio button label", "text"]
     ]],
     ["Contact / WhatsApp", [
-      ["whatsappNumber", "WhatsApp number (digits only, incl. country code)", "text"],
-      ["bookMessage", "Prefilled booking message", "text"]
+      ["whatsappLink", "WhatsApp Business chat link (wa.me/message/…) — used for contact buttons", "text"],
+      ["whatsappNumber", "WhatsApp number, digits only incl. country code — used for auto-filled booking details", "text"],
+      ["bookMessage", "Prefilled booking message (fallback if no chat link)", "text"]
     ]],
     ["Made in Ludhiana", [
       ["madeTitle", "Heading", "text"],
@@ -150,8 +152,11 @@
       if (c[k] != null) el.setAttribute("data-label", c[k]);
     });
     var wa = String(c.whatsappNumber || "").replace(/[^0-9]/g, "");
+    var bookHref = c.whatsappLink
+      ? c.whatsappLink
+      : ("https://wa.me/" + wa + "?text=" + encodeURIComponent(c.bookMessage || "I want to book a studio."));
     document.querySelectorAll('[data-wa="book"]').forEach(function (el) {
-      el.setAttribute("href", "https://wa.me/" + wa + "?text=" + encodeURIComponent(c.bookMessage || "I want to book a studio."));
+      el.setAttribute("href", bookHref);
     });
   }
 

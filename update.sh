@@ -7,6 +7,8 @@ echo "→ Pulling latest from GitHub..."
 git pull
 echo "→ Installing any new dependencies..."
 npm install --omit=dev
+echo "→ Fixing file ownership..."
+sudo chown -R www-data:www-data .
 echo "→ Restarting the site..."
 sudo systemctl restart u2berstudio
 echo "✓ Done. Live at https://studio.u2berclub.com"
