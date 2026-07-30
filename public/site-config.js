@@ -15,6 +15,7 @@
     heroLead: "A world-class podcast & content studio, right here in Ludhiana — built to turn your story, your business, and your voice into content the whole city watches.",
     heroBtnPrimary: "Start Your Creator Journey →",
     heroBtnGhost: "Are You a Founder?",
+    heroBtnExplore: "Explore Podcast Setups →",
 
     // Studio gallery
     galleryEyebrow: "Inside the Studio",
@@ -81,7 +82,8 @@
       ["heroAccent", "Heading line 2 (coloured)", "text"],
       ["heroLead", "Lead paragraph", "textarea"],
       ["heroBtnPrimary", "Primary button label", "text"],
-      ["heroBtnGhost", "Secondary button label", "text"]
+      ["heroBtnGhost", "Secondary button label", "text"],
+      ["heroBtnExplore", "Explore Setups button label", "text"]
     ]],
     ["Studio Gallery", [
       ["galleryEyebrow", "Section label", "text"],
