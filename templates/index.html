@@ -84,6 +84,11 @@
   .stat .num{font-family:'Anton';font-size:2.4rem;color:var(--gold);line-height:1}
   .stat .lbl{color:var(--muted);font-size:.82rem;margin-top:6px}
   @media(max-width:620px){.stats{grid-template-columns:1fr;gap:12px}}
+  .rule-box{margin:30px 0 6px;padding:24px 26px;border-radius:16px;border:1px solid rgba(255,203,69,.35);background:linear-gradient(180deg,rgba(255,203,69,.10),rgba(255,203,69,.02))}
+  .rule-box h3{font-family:'Sora';font-weight:700;font-size:1.12rem;color:var(--gold);margin:0 0 10px}
+  .rule-box p{color:#e6e6ee;font-size:.95rem;font-weight:300;line-height:1.65;margin:0}
+  .rule-box .rule-note{margin-top:12px;color:var(--muted);font-size:.88rem;font-style:italic}
+  .launch-note{margin-top:16px;color:var(--muted);font-size:.85rem;font-weight:300}
   .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px}
   .step{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:24px;position:relative;overflow:hidden}
   .step .n{font-family:'Anton';font-size:2.6rem;color:rgba(255,255,255,.12);line-height:1}
@@ -212,26 +217,33 @@
 <section class="band parallax ph-3" id="launchpad">
   <div class="wrap">
     <div class="card fade">
-      <span class="eyebrow">◆ Program 02</span>
-      <h2 data-key="launchHeading">U2berclub Launchpad</h2>
+      <span class="eyebrow">◆ <span data-key="launchEyebrow">Batch 01 · Applications Open</span></span>
+      <h2 data-key="launchHeading">100 Days · 100 Videos</h2>
       <div class="accent-line"></div>
-      <p class="body" style="font-size:clamp(1.1rem,2vw,1.35rem);color:#fff;margin-bottom:16px"><b data-key="launchTagline">Launch your Show. Launch your IP. In 2026.</b></p>
-      <p class="body" data-key="launchBody1">It's not about "making content" anymore. 2026 is the era of launching your own Show — your own IP. Every creator, big or small, has figured out the same secret: India's biggest names are all testing their ideas in show format.</p>
-      <p class="body" style="margin-top:16px" data-key="launchBody2">The only thing holding you back is the doubt — "what if it doesn't work?" That's exactly where we come in. Connect with U2berclub Launchpad and let's figure out how to launch your idea — and actually execute it.</p>
+      <p class="body" style="font-size:clamp(1.1rem,2vw,1.35rem);color:#fff;margin-bottom:16px"><b data-key="launchTagline">The work you already do is your content. In 100 days, we put it in front of your city.</b></p>
+      <p class="body" data-key="launchBody1">Architect, doctor, real estate, boutique owner, nail artist, makeup artist, tarot reader — it doesn’t matter what you do. You already have the one thing people actually watch content for: real experience in real work. Nobody has shown you how to put it on camera yet. That’s the whole job here.</p>
+      <p class="body" style="margin-top:16px" data-key="launchBody2">100 days. 100 videos. Shot at the studio, with me working on them personally alongside you — which is exactly why only a handful of people make it into a batch.</p>
       <div class="pill-list">
-        <span class="pill"><b>For:</b> Creators ready to launch a show</span>
-        <span class="pill"><b>We do:</b> Idea → Format → Execution</span>
-        <span class="pill"><b>Bonus:</b> We connect you with brands</span>
+        <span class="pill"><b>For:</b> <span data-key="launchPill1">Any profession</span></span>
+        <span class="pill"><b>Time:</b> <span data-key="launchPill2">30 hours across 100 days</span></span>
+        <span class="pill"><b>Where:</b> <span data-key="launchPill3">U2ber Club Studio, Ludhiana</span></span>
+        <span class="pill"><b>Seats:</b> <span data-key="launchPill4">Very limited</span></span>
+      </div>
+      <div class="rule-box">
+        <h3 data-key="launchRuleTitle">One condition.</h3>
+        <p data-key="launchRuleBody">For these 100 days, the strategy is mine. What we make, how we make it, when it goes out — that’s my call. I will listen to you, I will understand your work deeply, and we will talk about all of it. But once we start, there are no ifs and no buts for 100 days.</p>
+        <p class="rule-note" data-key="launchRuleNote">If you can’t hand over that trust for 100 days, this program isn’t for you — and that is completely fine.</p>
       </div>
       <div class="steps">
-        <div class="step"><div class="n">01</div><h4 data-key="ls1t">Pressure-test the Idea</h4><p data-key="ls1d">We sit with you and validate whether your show idea will actually land.</p></div>
-        <div class="step"><div class="n">02</div><h4 data-key="ls2t">Shape the Format</h4><p data-key="ls2d">Turn a rough idea into a repeatable show format &amp; IP you own.</p></div>
-        <div class="step"><div class="n">03</div><h4 data-key="ls3t">Shoot at the Studio</h4><p data-key="ls3d">Pro set, lights &amp; audio. We produce your first episodes with you.</p></div>
-        <div class="step"><div class="n">04</div><h4 data-key="ls4t">Launch &amp; Monetise</h4><p data-key="ls4d">Go live, grow, and get connected with brands that pay.</p></div>
+        <div class="step"><div class="n">01</div><h4 data-key="ls1t">Apply</h4><p data-key="ls1d">I read every application myself. Not everyone gets in.</p></div>
+        <div class="step"><div class="n">02</div><h4 data-key="ls2t">Lock Your Positioning</h4><p data-key="ls2d">Who you are, who you speak to, what you get known for — before a single video.</p></div>
+        <div class="step"><div class="n">03</div><h4 data-key="ls3t">Shoot at the Studio</h4><p data-key="ls3d">You show up, we direct. Set, lights, sound and camera are ours.</p></div>
+        <div class="step"><div class="n">04</div><h4 data-key="ls4t">100 Reels, Live</h4><p data-key="ls4d">Consistent on Instagram, until people in your field know your name.</p></div>
       </div>
       <div class="btn-row" style="margin-top:34px">
-        <button class="btn btn-primary" type="button" onclick="openLaunch()" data-key="launchBtn" data-track="launch_open">Launch My Show →</button>
+        <button class="btn btn-primary" type="button" onclick="openLaunch()" data-key="launchBtn" data-track="launch_open">Apply for Batch 01 →</button>
       </div>
+      <p class="launch-note" data-key="launchNote">This is a paid program. The price is discussed only after selection.</p>
     </div>
   </div>
 </section>
@@ -301,21 +313,21 @@
   <div class="modal">
     <button class="modal-close" onclick="closeLaunch()" aria-label="Close">✕</button>
     <div class="modal-head">
-      <span class="eyebrow">◆ U2berclub Launchpad</span>
-      <h3 id="launchTitle">Launch My Show</h3>
-      <p>Tell us about your idea. Hit submit and it opens WhatsApp with your details ready to send — then our team takes it from there. Fields marked <span style="color:var(--accent)">*</span> are required.</p>
+      <span class="eyebrow">◆ 100 Days · 100 Videos</span>
+      <h3 id="launchTitle">Apply for Batch 01</h3>
+      <p>Take your time with these answers. I read every application myself — <i>how</i> you answer tells me more than what you answer. Fields marked <span style="color:var(--accent)">*</span> are required.</p>
     </div>
     <form id="launchForm" novalidate>
       <div class="modal-body" id="launchFields"></div>
       <div class="modal-foot">
         <button class="btn btn-primary" type="submit" id="launchSubmit">Submit Application →</button>
-        <div class="note">Your application goes straight to the U2berclub Launchpad team.</div>
+        <div class="note">Your application comes straight to me. Shortlisted applicants are contacted on WhatsApp.</div>
       </div>
     </form>
     <div class="modal-success" id="launchSuccess">
       <div class="tick">✓</div>
       <h3>Application sent!</h3>
-      <p>Thanks for applying to U2berclub Launchpad. We'll reach out to you soon to plan your show.</p>
+      <p>Thanks for applying to 100 Days · 100 Videos. If your answers fit Batch 01, we’ll reach out on WhatsApp.</p>
       <button class="btn btn-primary" type="button" onclick="closeLaunch()">Done</button>
     </div>
   </div>
@@ -481,15 +493,25 @@
   });
 
   // ---- Launchpad modal (submits to Google Form) ----
-  var LAUNCH_ACTION="https://docs.google.com/forms/d/e/1FAIpQLScqo2gAR8S18XYjz4WiyB9AoLgEyNhey05VS3tfkwcbtIR2zA/formResponse";
+  var LAUNCH_ACTION="https://docs.google.com/forms/d/e/1FAIpQLSeaUuaUlkPnY3feXGT23fPAri0yTqTbPxeT4TUftdu8qb1EVA/formResponse";
   var LAUNCH_FIELDS=[
-    {e:"entry.1724141481", l:"Your Name", t:"text", req:true},
-    {e:"entry.1518216130", l:"Mobile Number", t:"tel", req:true},
-    {e:"entry.1609699328", l:"Instagram / Channel Link", t:"text", req:true},
-    {e:"entry.1580895189", l:"What stage is your idea at?", t:"select", req:true, o:["Just a rough idea","Idea is clear, not started yet","Started — a few episodes done","Already running, want to scale"]},
-    {e:"entry.859825944", l:"Is your idea new or inspired from creators outside?", t:"radio", req:true, o:["Completely original","Inspired by creators I follow","A mix of both"]},
-    {e:"entry.282179434", l:"What's the biggest bottleneck in executing it?", t:"textarea", req:true},
-    {e:"entry.1272380470", l:"How long have you been sitting on this idea?", t:"select", req:false, o:["Less than a month","1–3 months","3–6 months","6–12 months","Over a year"]}
+    {e:"entry.1510699815", l:"Full name", t:"text", req:true},
+    {e:"entry.944449748", l:"WhatsApp number", t:"tel", req:true},
+    {e:"entry.1218094090", l:"City", t:"text", req:true},
+    {e:"entry.461435684", l:"What do you do? (your profession or business)", t:"text", req:true},
+    {e:"entry.128386168", l:"How long have you been doing it?", t:"select", req:true, o:["Less than a year","1-3 years","3-7 years","More than 7 years"]},
+    {e:"entry.755432721", l:"Instagram handle (leave blank if you don\u2019t have one)", t:"text", req:false},
+    {e:"entry.93582223", l:"What do you want content to do for you?", t:"select", req:true, o:["Bring me customers and clients","Make my name known in my city","Build a personal brand beyond my work","Grow an audience I can earn from later","Honestly not sure yet - I just know I should have started already"]},
+    {e:"entry.1802791683", l:"Where do you want to be 100 days from now?", t:"textarea", req:true},
+    {e:"entry.336486470", l:"What has stopped you from making videos until now?", t:"textarea", req:true},
+    {e:"entry.630721383", l:"Tell me one thing about your work that your customers don\u2019t know \u2014 but should.", t:"textarea", req:true},
+    {e:"entry.1534358795", l:"What is your biggest hesitation about being on camera?", t:"textarea", req:true},
+    {e:"entry.11321728", l:"Something that happened at work in the last month that you\u2019d want to tell someone about.", t:"textarea", req:true},
+    {e:"entry.1232885931", l:"Can you give 30 hours to the studio across 100 days?", t:"radio", req:true, o:["Yes, I can","I think so, but I need to plan it","No, that is too much for me right now"]},
+    {e:"entry.1913746386", l:"All shoots happen at U2ber Club Studio, Ludhiana. Can you come in?", t:"radio", req:true, o:["Yes, no problem","I am outside Ludhiana but I can travel","No, I cannot come to the studio"]},
+    {e:"entry.563617884", l:"For 100 days you follow the strategy without debating it. Are you in?", t:"radio", req:true, o:["Yes - I am in, fully","I would need a reason explained for every decision"]},
+    {e:"entry.1277612162", l:"This is a paid program. The price is discussed only after selection. Ready to invest if selected?", t:"radio", req:true, o:["Yes","I would want the details first"]},
+    {e:"entry.854424519", l:"Anything else you want me to know before I read your application?", t:"textarea", req:false}
   ];
   (function(){
     var box=document.getElementById('launchFields');
